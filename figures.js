@@ -59,8 +59,10 @@ function calcularPerimetroCuadrado() {
     const value = input.value;
 
     const perimetro = perimetroCuadrado(value);
-    alert(perimetro);
-    hablar("El perímetro del cuadrado es de " + perimetro + "cm");
+
+    hablar("El perímetro del cuadrado es de " + perimetro + " cm");
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = "El perimetro es: " + perimetro + " cm";
 }
 
 function calcularAreaCuadrado() {
@@ -68,7 +70,9 @@ function calcularAreaCuadrado() {
     const value = input.value;
 
     const area = areaCuadrado(value);
-    alert(area);
+    
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = "El área es: " + area + " cm^2";
 }
 
 function calcularPerimetroTriangulo() {
@@ -80,7 +84,9 @@ function calcularPerimetroTriangulo() {
     const base = Number(inputBase.value);
 
     const perimetro = perimetroTriangulo(lado1, lado2, base);
-    alert(perimetro);
+    
+    const resultado = document.getElementById("resultadoTriangulo");
+    resultado.innerHTML = "El perímetro es: " + perimetro + " cm";
 }
 
 function calcularAreaTriangulo() {
@@ -90,7 +96,9 @@ function calcularAreaTriangulo() {
     const altura = Number(inputAltura.value);
 
     const area = areaTriangulo(base, altura);
-    alert(area);
+    
+    const resultado = document.getElementById("resultadoTrianguloArea");
+    resultado.innerHTML = "El área es: " + area + " cm^2";
 }
 
 function calcularDiametroCirculo() {
@@ -98,7 +106,9 @@ function calcularDiametroCirculo() {
     const radio = inputRadio.value;
 
     const diametro = diametroCirculo(radio);
-    alert(diametro);
+
+    const resultado = document.getElementById("resultadoCirculo");
+    resultado.innerHTML = "El diametro es: " + diametro + " cm";
 }
 
 function calcularPerimetroCirculo() {
@@ -106,7 +116,9 @@ function calcularPerimetroCirculo() {
     const radio = inputRadio.value;
 
     const perimetro = perimetroCirculo(radio);
-    alert(perimetro);
+    
+    const resultado = document.getElementById("resultadoCirculo");
+    resultado.innerHTML = "El perímetro es: " + perimetro + " cm";
 }
 
 function calcularAreaCirculo() {
@@ -114,7 +126,9 @@ function calcularAreaCirculo() {
     const radio = inputRadio.value;
 
     const area = areaCirculo(radio);
-    alert(area);
+
+    const resultado = document.getElementById("resultadoCirculo");
+    resultado.innerHTML = "El área es: " + area + " cm^2";
 }
 
 
@@ -130,19 +144,6 @@ function calcularAreaCirculo() {
 // Pista: la función Math.sqrt de JavaScript puede ayudarte a calcular raíces cuadradas.
 
 function alturaTriangulo(base, lado1, lado2) {
-    /* 
-    if (lado1 == lado2) {
-        if (lado1 == base) {
-            console.log("es equilatero");
-        } else {
-            console.log("es isoceles");
-        }
-    } else if (lado1 == base || lado2 == base) {
-        console.log("es isoceles");
-    } else {
-        console.log("es escaleno");
-    } */
-
     if (lado1 == lado2 && lado1 == base) {
         console.log("es equilaterov2");
         const altura = Math.sqrt((lado1**2) - ((lado1 / 2)**2));
@@ -171,5 +172,67 @@ function calcularAlturaTriangulo() {
     const lado2 = Number(inputLado2.value);
 
     const altura = alturaTriangulo(base, lado1, lado2);
-    alert(altura);
+    const resultado = document.getElementById("resultadoTriangulo");
+    resultado.innerHTML = "La altura es: " + altura + "cm";
+}
+
+/* Tabs */
+function showSquare() {
+    const actualTab = document.getElementById("tab-square");
+    actualTab.classList.add("active");
+
+    const tabTriangle = document.getElementById("tab-triangle");
+    tabTriangle.classList.remove("active");
+
+    const tabCircle = document.getElementById("tab-circle");
+    tabCircle.classList.remove("active");
+
+    const contentSquare = document.getElementById("content-square");
+    contentSquare.classList.remove("hidde");
+
+    const contentTriangle = document.getElementById("content-triangle");
+    contentTriangle.classList.add("hidde");
+
+    const contentCircle = document.getElementById("content-circle");
+    contentCircle.classList.add("hidde");
+}
+
+function showTriangle() {
+    const tabSquare = document.getElementById("tab-square");
+    tabSquare.classList.remove("active");
+
+    const actualTab = document.getElementById("tab-triangle");
+    actualTab.classList.add("active");
+
+    const tabCircle = document.getElementById("tab-circle");
+    tabCircle.classList.remove("active");
+
+    const contentSquare = document.getElementById("content-square");
+    contentSquare.classList.add("hidde");
+
+    const contentTriangle = document.getElementById("content-triangle");
+    contentTriangle.classList.remove("hidde");
+
+    const contentCircle = document.getElementById("content-circle");
+    contentCircle.classList.add("hidde");
+}
+
+function showCircle() {
+    const tabSquare = document.getElementById("tab-square");
+    tabSquare.classList.remove("active");
+
+    const tabTriangle = document.getElementById("tab-triangle");
+    tabTriangle.classList.remove("active");
+
+    const actualTab = document.getElementById("tab-circle");
+    actualTab.classList.add("active");
+
+    const contentSquare = document.getElementById("content-square");
+    contentSquare.classList.add("hidde");
+
+    const contentTriangle = document.getElementById("content-triangle");
+    contentTriangle.classList.add("hidde");
+
+    const contentCircle = document.getElementById("content-circle");
+    contentCircle.classList.remove("hidde");
 }
