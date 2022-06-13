@@ -14,7 +14,7 @@ console.groupEnd();
 
 // ##### Código del triángulo ##### 
 console.group("Triangulos");
-function perimetroTriangulo(lado1, lado2, base) {
+function perimetroTriangulo(base, lado1, lado2) {
     return lado1 + lado2 + base;
 }
 
@@ -83,10 +83,19 @@ function calcularPerimetroTriangulo() {
     const inputBase = document.getElementById("InputBaseTriangulo");
     const base = Number(inputBase.value);
 
-    const perimetro = perimetroTriangulo(lado1, lado2, base);
-    
+    const existe = existeTriangulo(base, lado1, lado2);
     const resultado = document.getElementById("resultadoTriangulo");
-    resultado.innerHTML = "El perímetro es: " + perimetro + " cm";
+
+    if (!existe) {
+        resultado.classList.add("resultado--error");
+        resultado.innerHTML = "ERROR: Las medidas ingresadas no son correctas";
+    } else {
+        const perimetro = perimetroTriangulo(base, lado1, lado2);
+        
+        const resultado = document.getElementById("resultadoTriangulo");
+        resultado.classList.remove("resultado--error");
+        resultado.innerHTML = "El perímetro es: " + perimetro + " cm";
+    }
 }
 
 function calcularAreaTriangulo() {
@@ -99,6 +108,33 @@ function calcularAreaTriangulo() {
     
     const resultado = document.getElementById("resultadoTrianguloArea");
     resultado.innerHTML = "El área es: " + area + " cm^2";
+}
+
+
+function existeTriangulo(base, lado1, lado2) {
+    let existe = false;
+
+    if (base >= lado1) {
+        if(base >= lado2) {
+            console.log("base es mayoor");
+            existe = base < lado1 + lado2;
+            console.log(existe);
+        } else {
+            console.log("lado2 es mayoor");
+            existe = lado2 < lado1 + base;
+            console.log(existe);
+        }
+    } else if (lado1 >= lado2) {
+        console.log("lado1 es mayoor");
+        existe = lado1 < lado2 + base;
+        console.log(existe);
+    } else {
+        console.log("lado2 es mayoor");
+        existe = lado2 < lado1 + base;
+        console.log(existe);
+    }
+
+    return existe;
 }
 
 function calcularDiametroCirculo() {
@@ -157,7 +193,6 @@ function alturaTriangulo(base, lado1, lado2) {
         console.log("es escalenov2");
         console.log("puede ser rectangulov2");
         const semiperimetro = (lado1 + lado2 + base) / 2;
-        console.log(semiperimetro);
         const altura = (2 / base) * Math.sqrt(semiperimetro * (semiperimetro - base) * (semiperimetro - lado1) * (semiperimetro - lado2));
         return Number(altura.toFixed(2));
     }
@@ -171,9 +206,18 @@ function calcularAlturaTriangulo() {
     const inputLado2 = document.getElementById("InputLado2Triangulo");
     const lado2 = Number(inputLado2.value);
 
-    const altura = alturaTriangulo(base, lado1, lado2);
+    const existe = existeTriangulo(base, lado1, lado2);
     const resultado = document.getElementById("resultadoTriangulo");
-    resultado.innerHTML = "La altura es: " + altura + "cm";
+
+    if (!existe) {
+        resultado.classList.add("resultado--error");
+        resultado.innerHTML = "ERROR: Las medidas ingresadas no son correctas";
+    } else {
+        const altura = alturaTriangulo(base, lado1, lado2);
+
+        resultado.classList.remove("resultado--error");
+        resultado.innerHTML = "La altura es: " + altura + " cm";
+    }
 }
 
 /* Tabs */

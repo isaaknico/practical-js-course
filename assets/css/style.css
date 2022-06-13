@@ -173,6 +173,11 @@ html {
     background-color: var(--terciary);
 }
 
+.resultado--error {
+    color: var(--white);
+    background-color: var(--error);
+}
+
 .hidde {
     display: none;
 }
