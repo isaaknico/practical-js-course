@@ -14,7 +14,39 @@
         <p>Este es el segundo taller del Curso Práctico de Javascript</p>
     </header>
 
-    <section class="section">
+    <section class="selector-figures-section">
+        <div class="selector-figures-container">
+            <div class="coupon-list">
+                <div class="coupon">
+                    <span class="material-symbols-rounded">
+                        sell
+                    </span>
+                    <span>CPON10</span>
+                </div>
+                <div class="coupon">
+                    <span class="material-symbols-rounded">
+                        sell
+                    </span>
+                    <span>CPON20</span>
+                </div>
+                <div class="coupon">
+                    <span class="material-symbols-rounded">
+                        sell
+                    </span>
+                    <span>PDAY15</span>
+                </div>
+                <div class="coupon">
+                    <span class="material-symbols-rounded">
+                        sell
+                    </span>
+                    <span>BFIN25</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="calculator-section">
         <div class="calculator-container">
             <h2 class="calculator__title">Calcula el precio a pagar de tus productos con descuento.</h2>
             <span class="material-symbols-rounded material-symbols-rounded--fill figure-icon">
@@ -26,10 +58,15 @@
                 <input class="input" id="InputPrice" type="number" placeholder="Precio Original">
 
                 <label class="label-input"  for="InputDiscount">Escribe el porcentaje de descuento de tu producto:</label>
-                <input class="input" id="InputDiscount" type="number" placeholder="% Descuento">
+                <input class="input" id="InputDiscount" type="number" placeholder="Descuento en %">
 
+                <label class="label-input" for="InputCoupon"> Tengo un cupón:</label>
+                <input class="input" id="InputCoupon" type="text" placeholder="BFIN25">
+                    
+                <button class="button button--outline" type="button" onclick="onClickButtonValidateCoupon()">Validar cupón</button>
+                <p class="messageCoupon" id="PMessage"></p>
+                
                 <button class="button" type="button" onclick="onClickButtonPriceDiscount()">Calcular precio final</button>
-
                 <p class="result"  id="PResult"></p>
             </form>
         </div>

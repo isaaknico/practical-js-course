@@ -48,19 +48,21 @@ html {
 }
 
 .selector-figures-section {
-    height: 10rem;
+    height: auto;
     background-color: var(--white);
     font-size: 1.6rem;
 }
 
 .selector-figures-container {
-    padding: 20px;
+    padding: 15px;
     border-radius: 30px 30px 0 0;
     background-color: var(--primary-light);
 }
 
-.list-figures {
+.list-figures,
+.coupon-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     max-width: 425px;
     margin: 0 auto;
@@ -84,6 +86,7 @@ html {
     flex-direction: column;
     align-items: center;
     width: 85px;
+    margin: 5px 0px;
     padding: 10px;
     color: var(--black);
     border: 0;
@@ -169,6 +172,17 @@ html {
     background-color: var(--black-light);
 }
 
+.button--outline {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.button--outline:hover {
+    color: var(--white);
+    cursor: pointer;
+    background-color: var(--black-light);
+}
+
 .result {
     width: 100%;
     height: auto;
@@ -181,6 +195,43 @@ html {
 }
 
 .resultado--error {
+    color: var(--white);
+    background-color: var(--error);
+}
+
+.coupon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    margin: 5px 0px;
+    padding: 5px 5px;
+    color: var(--primary);
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--white);
+}
+
+.messageCoupon {
+    width: 100%;
+    height: auto;
+    font-size: 1.6rem;
+    text-align: center;
+    border: 3px dashed var(--white);
+    border-radius: 10px;
+}
+
+.messageCoupon--success {
+    margin-bottom: 10px;
+    padding: 10px;
+    color: var(--white);
+    background-color: var(--success);
+}
+
+.messageCoupon--error {
+    margin-bottom: 10px;
+    padding: 10px;
     color: var(--white);
     background-color: var(--error);
 }
