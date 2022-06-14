@@ -103,11 +103,18 @@ html {
     background-color: var(--primary);
 }
 
+.section {
+    min-height: calc(100vh - 10rem);
+    padding: 30px 0;
+    border-radius: 30px 30px 0 0;
+    background-color: var(--primary-light);
+}
+
 /* Seccion calculadora */
 .calculator-section {
     min-height: calc(100vh - 20rem);
-    background-color: var(--primary-light);
     padding-bottom: 20px;
+    background-color: var(--primary-light);
 }
 
 .calculator-container {
@@ -162,7 +169,7 @@ html {
     background-color: var(--black-light);
 }
 
-.resultado {
+.result {
     width: 100%;
     height: auto;
     margin-bottom: 10px;

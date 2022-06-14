@@ -5,26 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porcentajes y descuentos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Porcentajes y descuentos</h1>
         <p>Este es el segundo taller del Curso Práctico de Javascript</p>
     </header>
 
-    <section>
-        <h2>Calcula el precio a pagar de tus productos con descuento.</h2>
-        <form action="">
-            <label for="InputPrice">Escribe el precio de tu producto:</label>
-            <input id="InputPrice" type="number" placeholder="Precio Original">
+    <section class="section">
+        <div class="calculator-container">
+            <h2 class="calculator__title">Calcula el precio a pagar de tus productos con descuento.</h2>
+            <span class="material-symbols-rounded material-symbols-rounded--fill figure-icon">
+                price_change
+            </span>
+            
+            <form action="">
+                <label class="label-input"  for="InputPrice">Escribe el precio de tu producto:</label>
+                <input class="input" id="InputPrice" type="number" placeholder="Precio Original">
 
-            <label for="InputDiscount">Escribe el porcentaje de descuento de tu producto:</label>
-            <input id="InputDiscount" type="number" placeholder="% Descuento">
+                <label class="label-input"  for="InputDiscount">Escribe el porcentaje de descuento de tu producto:</label>
+                <input class="input" id="InputDiscount" type="number" placeholder="% Descuento">
 
-            <button type="button" onclick="onClickButtonPriceDiscount()">Calcular precio final</button>
+                <button class="button" type="button" onclick="onClickButtonPriceDiscount()">Calcular precio final</button>
 
-            <p id="PResult"></p>
-        </form>
+                <p class="result"  id="PResult"></p>
+            </form>
+        </div>
     </section>
     <script src="./discounts.js"></script>
 </body>
