@@ -130,7 +130,7 @@ html {
 }
 
 .calculator__title {
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .figure-icon {
@@ -238,4 +238,55 @@ html {
 
 .hidde {
     display: none;
+}
+
+/** Taller #3 **/
+.section--list {
+    margin-bottom: 20px;
+}
+
+.list-container {
+    width: 90%;
+    min-height: 15rem;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.list-title {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.list-item {
+    min-width: 50px;
+    min-height: 2rem;
+    margin: 5px;
+    padding: 5px 10px;
+    text-align: center;
+    color: var(--white);
+    font-size: 1.4rem;
+    list-style: none;
+    border-radius: 30px;
+    background-color: var(--primary);
+}
+
+.list-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-buttons .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+    
 }
