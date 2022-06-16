@@ -11,7 +11,7 @@ function isPair(list) {
 }
 
 /* Funcion que calcula la mediana */
-function median(list){
+function calculateMedian(list){
     let median;
 
     //Funcion de comparacion para .sort
@@ -42,4 +42,63 @@ function median(list){
     }
 
     return median;
+}
+
+/* Funcion que muestra en HTML lista recorrida */
+function printList(array) {
+    var pResultSum = ``;
+
+    for (let i = 0; i < array.length; i++) {
+        pResultSum += `<li class="list-item"> ${ array[i] } </li>`;
+    }
+
+    const pResult = document.getElementById("UlResult");
+    pResult.innerHTML = pResultSum;
+}
+
+var list = [];
+
+/* Funcion que muestra en HTML elem agregado a la lista, tambien lo inserta en lista */
+function onClickButtonAddElem() {
+    const inputElem = document.getElementById("InputElem");
+    const elem = Number(inputElem.value);
+
+    //Si se ingresó un elem
+    if (elem) {
+        //Añade elem al array
+        list.push(elem);
+
+        //Muestra en HTML lista recorrida con elem agregado
+        printList(list);
+        
+        //Limpia el formulario(input)
+        document.getElementById("Form").reset();
+    }
+}
+
+/* Funcion que borra ultimo elem de lista */
+function onClickButtonDeleteLastElem() {
+    list.pop();
+
+    //Muestra en HTML lista recorrida con elem borrado
+    printList(list);
+}
+
+/* Funcion que reinicia lista */
+function onClickButtonRestartList() {
+    list = [];
+
+    //Muestra en HTML lista recorrida(vacia)
+    printList(list);
+
+    const pResult = document.getElementById("PResult");
+    pResult.innerText = "";
+}
+
+/* Funcion que muestra en HTML la mediana */
+function onClickButtonMedian() {
+    const median = Number(calculateMedian(list).toFixed(2));
+
+    const pResult = document.getElementById("PResult");
+    pResult.innerText = "La mediana de tu lista es: " + median;
 }
