@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio, Mediana, Moda y RMS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    
+    <header class="header">
+        <h1>Promedio, Mediana, Moda, RMS y Promedio ponderado</h1>
+        <p>Este es el tercer taller del Curso Práctico de Javascript</p>
+    </header>
+    <section class="selector-figures-section">
+        <div class="selector-figures-container">
+            <div class="list-figures">
+                <button class="item item--large active" onclick="showStatistics()" id="tab-statistics">
+                    <span class="material-symbols-rounded">
+                        square
+                    </span>
+                    <span>Promedio, Mediana, Moda y RMS</span>
+                </button>
+                <button class="item item--large" onclick="showWeighted()" id="tab-weighted">
+                    <span class="material-symbols-rounded">
+                        change_history
+                    </span>
+                    <span>Promedio ponderado</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-section" id="content-statistics">
+        <div class="calculator-container">
+            <h2 class="calculator__title">Calcula el Promedio, Mediana, Moda y RMS de una lista.</h2>
+            
+            <div class="section--list">
+                <div class="list-container">
+                    <span class="list-title">Mi lista:</span>
+                    <ul class="list" id="UlResult">
+                        <!--
+                        <li class="list-item">1</li>
+                        <li class="list-item">2</li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <form action="" id="Form">
+                <label class="label-input" for="InputElem">Escribe un número para añadirlo a la lista:</label>
+                <input class="input" id="InputElem" type="number" placeholder="Agrega un elemento">
+
+                <button class="button" onclick="onClickButtonAddElem(list)" type="button">Añadir a lista</button>
+                
+                <div class="list-buttons">
+                    <button class="button button--outline" onclick="onClickButtonDeleteLastElem(list)" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
+                    <button class="button button--outline" onclick="onClickButtonRestartList(list)" type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
+                </div>
+
+                <button class="button" onclick="onClickButtonCalculate(list)" type="button">Calcular</button>
+
+                <div class="result" id="PResult"></div>
+            </form>
+        </div>
+    </section>
+
+    <section class="calculator-section hidde" id="content-weighted">
+        <div class="calculator-container">
+            <h2 class="calculator__title">Calcula el Promedio ponderado de una lista.</h2>
+            
+            <div class="section--list">
+                <div class="list-container">
+                    <span class="list-title">Mi lista:</span>
+                    <span class="list-subtitle">Valor - Peso</span>
+                    <ul class="list-weighted-mean" id="UlResultWeightedMean">
+                        <!--
+                        <li class="list-weighted-mean__item">
+                            <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--left">10</span>
+                            <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--right">2</span>
+                        </li>
+                        <li class="list-weighted-mean__item">
+                            <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--left">7</span>
+                            <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--right">2</span>
+                        </li> 
+                        <li class="list-item">2</li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <form action="" id="FormWeightedMean">
+                <label class="label-input" for="InputValue">
+                    Escribe el valor:
+                </label>
+                <input class="input" type="number" id="InputValue" placeholder="42">
+
+                <label for="InputWeight" class="label-input">
+                    Escribe su peso(ponderación):
+                </label>
+                <input class="input" type="number" id="InputWeight" placeholder="2">
+
+                <button class="button" onclick="onClickButtonAddElemWM(notes)" type="button">Añadir a lista</button>
+                
+                <div class="list-buttons">
+                    <button class="button button--outline" onclick="onClickButtonDeleteLastElemWM()" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
+                    <button class="button button--outline" onclick="onClickButtonRestartListWM()"type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
+                </div>
+
+                <button class="button" onclick="onClickButtonCalculateWM()" type="button">Calcular</button>
+
+                <div class="result" id="PResultWM"></div>
+            </form>
+
+        </div>
+    </section>
+
+    <script src="./statistics.js"></script>
+    <script src="./weighted-mean.js"></script>
+    
+</body>
+</html>
