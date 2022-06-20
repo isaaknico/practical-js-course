@@ -7,6 +7,30 @@ const notes = [
 ]; */
 const notes = [];
 
+/* Funcion que obtiene Promedio ponderado */
+function calculateWeightedMean() {
+    /* Multiplica cada nota por su ponderacion(créditos) */
+    const weightedNotes = notes.map(function(noteObject) {
+        return noteObject.note * noteObject.credit;
+    });
+
+    /* Obtiene la suma de las calificaciones ponderadas */
+    const sumOfWeightedNotes = weightedNotes.reduce(function(previousValue, currentValue) {
+        return previousValue + currentValue;
+    });
+
+    /* Obtiene la suma de las ponderaciones(créditos) */
+    const initialValue = 0;
+    const sumOfWeighteds = notes.reduce(function(previousValue, currentValue) {
+        return previousValue + currentValue.credit;
+    }, initialValue);
+
+    /* Divide calificaciones ponderadas entre suma de las calificaciones ponderadas */
+    const weightedMean = sumOfWeightedNotes / sumOfWeighteds;
+
+    return weightedMean;
+}
+
 /*** Funciones de interaccion con HTML: ***/
 /* Funcion que muestra en HTML lista recorrida */
 function printListWM(array) {
@@ -29,6 +53,18 @@ function onClickButtonDeleteLastElemWM(array) {
     array.pop();
 
     //Muestra en HTML lista recorrida(con elem borrado)
+    printListWM(array);
+
+    const pResult = document.getElementById("PResultWM");
+    pResult.innerText = "";
+}
+
+/* Funcion que reinicia lista */
+function onClickButtonRestartListWM(array) {
+    //array = [];
+    array.length = 0;
+
+    // Muestra en HTML lista recorrida(vacia)
     printListWM(array);
 
     const pResult = document.getElementById("PResultWM");
@@ -69,26 +105,14 @@ function onClickButtonAddElemWM(array) {
     }
 }
 
-/* Funcion que obtiene Promedio ponderado */
-function calculateWeightedMean(notes) {
-    /* Multiplica cada nota por su ponderacion(créditos) */
-    const weightedNotes = notes.map(function(noteObject) {
-        return noteObject.note * noteObject.credit;
-    });
+/* Funcion que muestra en HTML el resultado del calculo de promedio, etc. */
+function onClickButtonCalculateWeightedMean() {
+    const wm = Number(calculateWeightedMean(notes).toFixed(2));
 
-    /* Obtiene la suma de las calificaciones ponderadas */
-    const sumOfWeightedNotes = weightedNotes.reduce(function(previousValue, currentValue) {
-        return previousValue + currentValue;
-    });
-
-    /* Obtiene la suma de las ponderaciones(créditos) */
-    const initialValue = 0;
-    const sumOfWeighteds = notes.reduce(function(previousValue, currentValue) {
-        return previousValue + currentValue.credit;
-    }, initialValue);
-
-    /* Divide calificaciones ponderadas entre suma de las calificaciones ponderadas */
-    const weightedMean = sumOfWeightedNotes / sumOfWeighteds;
-
-    return weightedMean;
+    const pResult = document.getElementById("PResultWM");
+    pResult.innerHTML = `
+        <div class="result__item">
+            <p>El promedio ponderado es:</p>
+            <span>${ wm }</span>
+        </div>`;
 }

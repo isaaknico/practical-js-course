@@ -205,10 +205,13 @@ function onClickButtonCalculate(array) {
             <span>${median}</span>
         </div>
         <div class="result__item">
-            <p>El promedio ponderado es:</p>
+            <p>La moda es:</p>
+            <span>${mode}</span>
+        </div>
+        <div class="result__item">
+            <p>El promedio cuadrático(RMS) es:</p>
             <span>${rms}</span>
         </div>`;
-    
 }
 
 /**** Tabs ****/
