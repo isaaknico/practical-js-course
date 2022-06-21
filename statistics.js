@@ -1,8 +1,9 @@
 /* Define la lista del usuario */
 var list = [];
 
-/*** Funciones de calculo ***/
-/* Funcion que valida si la lista es par */
+/* Ejemplo:
+var list = [1, 2, 4, 5]; */
+
 function isPair(list) {
     if (list.length % 2 === 0) {
         return true;
@@ -11,26 +12,16 @@ function isPair(list) {
     }
 }
 
-/* Funcion que calcula el promedio */
 function calculateArithmeticMean(list) {
-    /* Escrito de otra forma:
-    // Suma los elems del array con ciclo For
-    let sumList = 0;
-    for (let i = 0; i < list.length; i++) {
-        sumList += list[i];
-    } */
-
-    // Suma los elems del array
-    const sumList = list.reduce(function (previousValue, currentValue) {
+    const sumElems = list.reduce(function (previousValue, currentValue) {
         return previousValue + currentValue;
     }, 0);
 
-    const averageList = sumList / list.length;
+    const averageList = sumElems / list.length;
     
     return averageList;
 }
 
-/* Funcion que calcula la mediana */
 function calculateMedian(list){
     let median;
 
@@ -50,7 +41,6 @@ function calculateMedian(list){
         middleSecondPosition = orderedList[halfLengthList];
 
         median = (middleFirstPosition + middleSecondPosition) /2;
-
     } else {
         // Toma el numero del medio
         middlePosition = parseInt(halfLengthList);
@@ -61,7 +51,6 @@ function calculateMedian(list){
     return median;
 }
 
-/* Funcion que calcula la moda */
 function calculateMode(list) {
     // Define el objeto donde se guardará el num y las veces que aparece ese num en nuestro array.
     const countList = {};
@@ -83,92 +72,78 @@ function calculateMode(list) {
     );
 
     /* Escrito de otra forma:
-    //Convierte el obj generado en un array de arrays 
+    // Convierte el obj generado en un array de arrays 
     const countListArray = Object.entries(countList);
-    //Ordena el array de menos a mas repetido
+    // Ordena el array de menos a mas repetido
     const orderAsc = countListArray.sort(
         function (elementoA, elementoB) {
             return elementoA[1] - elementoB[1]
         }
     );  */
 
-    //Guarda el elem mas repetido y Obtiene valor de moda
+    // Guarda el elem mas repetido y Obtiene valor de moda
     const modeElem = countListSortedArray[countListSortedArray.length - 1];
     const mode = modeElem[0];
 
     return mode;
 }
 
-/* Funcion que calcula la media cuadrática (rms) */
 function calculateRms(list) {
     // Eleva al cuadrado cada elemento
     const squaredList = list.map(function(elem) {
         return elem**2;
     });
 
-    // Suma todos los elementos
-    const sum = squaredList.reduce(function(previousValue, currentValue) {
+    const sumElemsSquared = squaredList.reduce(function(previousValue, currentValue) {
         return previousValue + currentValue;
     }, 0);
 
-    const division = sum / list.length;
+    const division = sumElemsSquared / list.length;
     const rms = Math.sqrt(division);
 
     return rms;
 }
 
 
-/*** Funciones de interaccion con HTML: ***/
-/* Funcion que muestra en HTML lista recorrida */
 function printList(array) {
-    var pResultSum = ``;
+    var targetTagResult = "";
+    var targetTagContent = "";
+    var tagFullContent = ``;
 
-    for (let i = 0; i < array.length; i++) {
-        pResultSum += `<li class="list-item"> ${ array[i] } </li>`;
+    switch (array) {
+        case list:
+            targetTagResult = "PResult";
+            targetTagContent = "UlResult";
+            for (let i = 0; i < array.length; i++) {
+                tagFullContent += `<li class="list-item"> ${ array[i] } </li>`;
+            }
+            break;
+        case notes:
+            targetTagResult = "PResultWM";
+            targetTagContent = "UlResultWeightedMean";
+            for (let i = 0; i < array.length; i++) {
+                tagFullContent += 
+                `<li class="list-weighted-mean__item">
+                    <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--left"> ${ array[i].note } </span>
+                    <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--right"> ${ array[i].credit } </span>
+                </li>`;
+            }
+            break;
+        default:
+            break;
     }
-
-    const pResult = document.getElementById("UlResult");
-    pResult.innerHTML = pResultSum;
-}
-
-/* Funcion que muestra en HTML elem agregado a la lista, tambien lo inserta en lista */
-function onClickButtonAddElem(array) {
-    const inputElem = document.getElementById("InputElem");
-    const elem = Number(inputElem.value);
-
-    //Si se ingresó un elem
-    if (elem) {
-        //Añade elem al array
-        array.push(elem);
-
-        //Muestra en HTML lista recorrida(con elem borrado)
-        printList(array);
-
-        /* Escrito de otra forma:
-        // Muestra en HTML elem agregado a la lista **
-        const ulResult = document.getElementById("UlResult");
-        const liResult = document.createElement("li");
-        const liText = document.createTextNode(elem);
-        liResult.appendChild(liText);
-        ulResult.appendChild(liResult);
-        liResult.classList.add("list-item");
-        //Desventajas:
-        //--Al eliminar un elem la lista se queda impresa en el HTML-- */
-        
-        //Limpia el formulario(input)
-        document.getElementById("Form").reset();
-    }
+    
+    var tagResult = document.getElementById(targetTagResult);
+    tagResult.innerText = "";
+    var tagContent = document.getElementById(targetTagContent);
+    tagContent.innerHTML = tagFullContent;
 }
 
 /* Funcion que borra ultimo elem de lista */
 function onClickButtonDeleteLastElem(array) {
     array.pop();
 
-    //Muestra en HTML lista recorrida(con elem borrado)
     printList(array);
-
-    const pResult = document.getElementById("PResult");
-    pResult.innerText = "";
 }
 
 /* Funcion que reinicia lista */
@@ -176,41 +151,49 @@ function onClickButtonRestartList(array) {
     //array = [];
     array.length = 0;
 
-    // Muestra en HTML lista recorrida(vacia)
     printList(array);
+}
 
-    const pResult = document.getElementById("PResult");
-    pResult.innerText = "";
+/* Funcion que agrega elem en lista y muestra en HTML lista  */
+function onClickButtonAddElem() {
+    const inputElem = document.getElementById("InputElem");
+    const elem = Number(inputElem.value);
+
+    //Si se ingresó un elem
+    if (elem) {
+        list.push(elem);
+
+        printList(list);
+        
+        //Limpia el formulario(input)
+        document.getElementById("Form").reset();
+    }
 }
 
 /* Funcion que muestra en HTML el resultado del calculo de promedio, etc. */
-function onClickButtonCalculate(array) {
-    const average = Number(calculateArithmeticMean(array).toFixed(2));
-    const median = Number(calculateMedian(array).toFixed(2));
-    const mode = Number(calculateMode(array));
-    const rms = Number(calculateRms(array).toFixed(2));
+function onClickButtonCalculate() {
+    const average = Number(calculateArithmeticMean(list).toFixed(2));
+    const median = Number(calculateMedian(list).toFixed(2));
+    const mode = Number(calculateMode(list));
+    const rms = Number(calculateRms(list).toFixed(2));
 
     const pResult = document.getElementById("PResult");
-    /*pResult.innerText = "El promedio de tu lista es: " + average + "." +
-    "La mediana de tu lista es: " + median + "." +
-    "La moda de tu lista es: " + mode + "." +
-    "El RMS de tu lista es: " + rms + "."; */
     pResult.innerHTML = `
         <div class="result__item">
             <p>El promedio es:</p>
-            <span>${average}</span>
+            <span>${ average }</span>
         </div>
         <div class="result__item">
             <p>La media es:</p>
-            <span>${median}</span>
+            <span>${ median }</span>
         </div>
         <div class="result__item">
             <p>La moda es:</p>
-            <span>${mode}</span>
+            <span>${ mode }</span>
         </div>
         <div class="result__item">
             <p>El promedio cuadrático(RMS) es:</p>
-            <span>${rms}</span>
+            <span>${ rms }</span>
         </div>`;
 }
 

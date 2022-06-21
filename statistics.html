@@ -52,14 +52,14 @@
                 <label class="label-input" for="InputElem">Escribe un número para añadirlo a la lista:</label>
                 <input class="input" id="InputElem" type="number" placeholder="Agrega un elemento">
 
-                <button class="button" onclick="onClickButtonAddElem(list)" type="button">Añadir a lista</button>
+                <button class="button" onclick="onClickButtonAddElem()" type="button">Añadir a lista</button>
                 
                 <div class="list-buttons">
                     <button class="button button--outline" onclick="onClickButtonDeleteLastElem(list)" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
                     <button class="button button--outline" onclick="onClickButtonRestartList(list)" type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
                 </div>
 
-                <button class="button" onclick="onClickButtonCalculate(list)" type="button">Calcular</button>
+                <button class="button" onclick="onClickButtonCalculate()" type="button">Calcular</button>
 
                 <div class="result" id="PResult"></div>
             </form>
@@ -83,8 +83,7 @@
                         <li class="list-weighted-mean__item">
                             <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--left">7</span>
                             <span class="list-weighted-mean__sub-item list-weighted-mean__sub-item--right">2</span>
-                        </li> 
-                        <li class="list-item">2</li> -->
+                        </li>  -->
                     </ul>
                 </div>
             </div>
@@ -100,11 +99,11 @@
                 </label>
                 <input class="input" type="number" id="InputWeight" placeholder="2">
 
-                <button class="button" onclick="onClickButtonAddElemWM(notes)" type="button">Añadir a lista</button>
+                <button class="button" onclick="onClickButtonAddElemWM()" type="button">Añadir a lista</button>
                 
                 <div class="list-buttons">
-                    <button class="button button--outline" onclick="onClickButtonDeleteLastElemWM(notes)" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
-                    <button class="button button--outline" onclick="onClickButtonRestartListWM(notes)"type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
+                    <button class="button button--outline" onclick="onClickButtonDeleteLastElem(notes)" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
+                    <button class="button button--outline" onclick="onClickButtonRestartList(notes)"type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
                 </div>
 
                 <button class="button" onclick="onClickButtonCalculateWeightedMean()" type="button">Calcular</button>
