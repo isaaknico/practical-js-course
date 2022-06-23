@@ -1,4 +1,3 @@
-/* Define lista de salario por persona */
 const colombia = [];
 
 colombia.push({
