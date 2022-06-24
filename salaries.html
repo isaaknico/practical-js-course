@@ -18,15 +18,15 @@
             <div class="list-figures">
                 <button class="item item--large active" onclick="showMedianSalary()" id="tab_median-salary">
                     <span class="material-symbols-rounded">
-                        square
+                        equalizer
                     </span>
                     <span>Mediana salarial</span>
                 </button>
                 <button class="item item--large" onclick="showRelationDE()" id="tab_relation-de">
                     <span class="material-symbols-rounded">
-                        change_history
+                        balance
                     </span>
-                    <span>Relacion Deuda-Ingresos</span>
+                    <span>Relacion Deuda-Ingresos (Proximamente)</span>
                 </button>
             </div>
         </div>
@@ -38,8 +38,8 @@
             
             <div class="section--list">
                 <div class="list-container">
-                    <span class="list-title">Mi lista:</span>
-                    <span class="list-subtitle">Ingreso - Mes / Año</span>
+                    <span class="list-title">Mis ingresos:</span>
+                    <span class="list-subtitle">Ingreso por Mes / Año</span>
                     <ul class="list-weighted-mean" id="ul_result-median-salary">
                         <!--
                         <li class="list-weighted-mean__item">
@@ -56,19 +56,21 @@
 
             <form action="" id="form_median-salary">
                 <label class="label-input" for="input_entry">Escribe tu ingreso mensual para añadirlo a la lista:</label>
-                <input class="input" type="number" id="input_entry" placeholder="Ingreso">
+                <input class="input" type="number" id="input_entry" placeholder="Ingreso mensual">
 
-                <label class="label-input" for="input-date">Escribe el mes y/o año (opcional):</label>
-                <input class="input" type="text" id="input-date" placeholder="Mes y/o Año">
+                <label class="label-input" for="input-date">Escribe el mes y año (opcional):</label>
+                <input class="input" type="text" id="input-date" placeholder="Mes y Año correspondiente">
 
-                <button class="button" onclick="onClickButtonAddElem()" type="button">Añadir a lista</button>
+                <button class="button" onclick="onClickButtonAddElemMS()" type="button">Añadir a lista</button>
                 
                 <div class="list-buttons">
-                    <button class="button button--outline" onclick="onClickButtonDeleteLastElem(salaries)" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
-                    <button class="button button--outline" onclick="onClickButtonRestartList(salaries)"type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
+                    <button class="button button--outline" onclick="onClickButtonDeleteLastElem(salaryData)" type="button">Borrar último <span class="material-symbols-rounded">backspace</span></button>
+                    <button class="button button--outline" onclick="onClickButtonRestartList(salaryData)"type="button">Reestablecer <span class="material-symbols-rounded">restart_alt </span></button>
                 </div>
 
                 <button class="button" onclick="onClickButtonCalculateMedianSalary()" type="button">Calcular mediana salarial</button>
+
+                <button class="button" onclick="onClickButtonCalculateMedianSalaryTop10()" type="button">Calcular mediana salarial del Top 10%</button>
 
                 <p class="result" id="p_result"></p>
             </form>
