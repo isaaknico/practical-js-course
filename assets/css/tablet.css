@@ -1,0 +1,27 @@
+.navbar__item--desk {
+    display: flex;
+    width: 120px;
+}
+
+.navbar .material-symbols-rounded {
+    margin-right: 5px;
+}
+
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 82rem;
+    padding: 0 122px;
+    overflow-x: auto;
+    overscroll-behavior-x: none;
+    scroll-snap-type: none;
+}
+
+.carousel__item:first-child {
+    margin-left: 10px;
+}
+
+.carousel__item:last-child {
+    margin-right: 10px;
+}

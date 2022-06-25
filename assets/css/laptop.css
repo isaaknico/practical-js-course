@@ -1,0 +1,11 @@
+.navbar__item--desk {
+    display: flex;
+    width: 130px;
+    color: var(--black-light);
+}
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    padding: 2rem 0rem;
+}
