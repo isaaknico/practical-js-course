@@ -1,7 +1,6 @@
 /* Variables */
 :root {
-    /* Colores */
-    /* 
+    /* Colores 
     --primary: #dbf4f2;
     --primary-light: #e9f7f6;
     --secondary: #faebe2; 
@@ -13,6 +12,7 @@
     --black-light: #302f2f; */
     --primary: #ee7b6a;
     --primary-light: #fff2f0;
+    --primary-dark: #f87864;
     --secondary: #373c9e; 
     --secondary-light: #bbbef0; 
     --terciary: #90e5ee;
@@ -41,26 +41,159 @@ html {
 .header {
     width: 100%;
     min-height: 10rem;
-    padding: 20px;
+    padding: 10px 20px 20px;
     font-size: 1.6rem;
     text-align: center;
     background-color: var(--white);
 }
 
-.selector-figures-section {
+.nav {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    list-style: none;
+}
+
+.navbar__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    text-decoration: none;
+    color: var(--black-light);
+}
+
+.navbar__item:hover {
+    border-radius: 20px;
+    background-color: var(--primary-light);
+}
+
+.navbar__item:active {
+    border-radius: 20px;
+    background-color: var(--primary-light);
+}
+
+.section-half {
     height: auto;
     background-color: var(--white);
     font-size: 1.6rem;
 }
 
-.selector-figures-container {
+.section-half__container {
     padding: 15px;
     border-radius: 30px 30px 0 0;
     background-color: var(--primary-light);
 }
 
-.list-figures,
-.coupon-list {
+
+.section {
+    min-height: calc(100vh - 20rem);
+    padding-bottom: 20px;
+    background-color: var(--primary-light);
+}
+
+.section__container {
+    width: 100%;
+    max-width: 425px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: var(--white);
+}
+
+.section__title {
+    margin: 10px 0;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.carousel__item {
+    margin: 0 10px;
+    scroll-snap-align: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.carousel__item:first-child {
+    margin-left: 35px;
+}
+
+.carousel__item:last-child {
+    margin-right: 35px;
+}
+
+.carousel__item .item__title {
+    display: inline-block;
+    color: var(--black);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 240px;
+    height: 35rem;
+    margin: 5px 0;
+    padding: 20px;
+    border-radius: 30px;
+    color: var(--black-light);
+    background-color: var(--primary);
+}
+
+.card:hover {
+    cursor: pointer;
+    outline: 5px solid var(--white);
+    background-color: var(--terciary);
+}
+
+.card__figure-icon {
+    font-size: 150px;
+    color: var(--primary-light);
+}
+
+.card__title {
+    margin-top: .6rem;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.card__text {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    color: var(--black-light);
+}
+
+.card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.card__icon {
+    vertical-align: middle;
+    font-size: 1.6rem;
+}
+
+/* Taller #2 */
+.tabs-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -81,62 +214,36 @@ html {
     'FILL' 1
 }
 
-.item {
+.tab {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 85px;
     margin: 5px 0px;
     padding: 10px;
-    color: var(--black);
     border: 0;
     border-radius: 10px;
     text-decoration: none;
+    color: var(--black);
     background-color: var(--white);
 }
 
-.item--large {
+.tab--large {
     width: 140px;
 }
 
-.item:hover {
+.tab:hover {
     cursor: pointer;
     color: var(--black);
     background-color: var(--gray);
 }
 
-.item:active, .active {
+.tab:active, .active {
     color: var(--white);
     background-color: var(--primary);
 }
 
-.section {
-    min-height: calc(100vh - 10rem);
-    padding: 30px 0;
-    border-radius: 30px 30px 0 0;
-    background-color: var(--primary-light);
-}
-
-/* Seccion calculadora */
-.calculator-section {
-    min-height: calc(100vh - 20rem);
-    padding-bottom: 20px;
-    background-color: var(--primary-light);
-}
-
-.calculator-container {
-    width: 100%;
-    max-width: 425px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 30px;
-    background-color: var(--white);
-}
-
-.calculator__title {
-    margin: 10px 0;
-}
-
+/* Section form */
 .figure-icon {
     display: flex;
     justify-content: center;
@@ -155,9 +262,9 @@ html {
     height: 40px;
     margin-bottom: 1rem;
     padding: 5px 20px;
-    font-size: 1.4rem;
     border: none;
     border-radius: 10px;
+    font-size: 1.4rem;
     background-color: var(--gray);
 }
 
@@ -165,9 +272,9 @@ html {
     width: 100%;
     height: 40px;
     margin-bottom: 1rem;
-    color: var(--white);
     border: 1px solid var(--black);
     border-radius: 10px;
+    color: var(--white);
     background-color: var(--black);
 }
 
@@ -182,19 +289,19 @@ html {
 }
 
 .button--outline:hover {
-    color: var(--white);
     cursor: pointer;
+    color: var(--white);
     background-color: var(--black-light);
 }
 
-.result {
+.result-container {
     width: 100%;
     height: auto;
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 2rem;
-    text-align: center;
     border-radius: 10px;
+    text-align: center;
+    font-size: 2rem;
     background-color: var(--terciary);
 }
 
@@ -209,7 +316,7 @@ html {
     color: var(--primary);
 }
 
-.resultado--error {
+.result--error {
     color: var(--white);
     background-color: var(--error);
 }
@@ -221,30 +328,30 @@ html {
     width: 100px;
     margin: 5px 0px;
     padding: 5px 5px;
-    color: var(--primary);
     border: 0;
     border-radius: 10px;
     text-decoration: none;
+    color: var(--primary);
     background-color: var(--white);
 }
 
-.messageCoupon {
+.message-coupon {
     width: 100%;
     height: auto;
-    font-size: 1.6rem;
-    text-align: center;
     border: 3px dashed var(--white);
     border-radius: 10px;
+    text-align: center;
+    font-size: 1.6rem;
 }
 
-.messageCoupon--success {
+.message-coupon--success {
     margin-bottom: 10px;
     padding: 10px;
     color: var(--white);
     background-color: var(--success);
 }
 
-.messageCoupon--error {
+.message-coupon--error {
     margin-bottom: 10px;
     padding: 10px;
     color: var(--white);
@@ -260,7 +367,7 @@ html {
     margin-bottom: 20px;
 }
 
-.list-container {
+.list__container {
     width: 90%;
     min-height: 15rem;
     margin: 0 auto;
@@ -269,13 +376,14 @@ html {
     text-align: center;
 }
 
-.list-title {
+.list__title {
     font-size: 1.5rem;
     color: var(--primary);
 }
 
-.list-subtitle {
+.list__subtitle {
     display: block;
+    margin-top: 0.4rem;
     font-size: 1.4rem;
     color: var(--black-light);
 }
@@ -286,7 +394,7 @@ html {
     justify-content: center;
 }
 
-.list-item {
+.list__item {
     min-width: 50px;
     min-height: 2rem;
     margin: 5px;
@@ -303,10 +411,10 @@ html {
     min-width: 50px;
     min-height: 2rem;
     margin: 5px;
-    text-align: center;
-    color: var(--white);
-    font-size: 1.4rem;
     list-style: none;
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--white);
 }
 
 .list-weighted-mean__sub-item {
@@ -325,12 +433,12 @@ html {
     background-color: var(--secondary-light);
 }
 
-.list-buttons {
+.list__buttons {
     display: flex;
     justify-content: space-between;
 }
 
-.list-buttons .button {
+.list__buttons .button {
     display: flex;
     align-items: center;
     justify-content: center;

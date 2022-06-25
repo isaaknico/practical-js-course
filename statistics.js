@@ -115,7 +115,7 @@ function printList(array) {
             targetTagResult = "PResult";
             targetTagContent = "UlResult";
             for (let i = 0; i < array.length; i++) {
-                tagFullContent += `<li class="list-item"> ${ array[i] } </li>`;
+                tagFullContent += `<li class="list__item"> ${ array[i] } </li>`;
             }
             break;
         case notes:

@@ -10,13 +10,42 @@
 </head>
 <body>
     <header class="header">
+        <nav class="nav">
+            <a class="navbar__item" href="./index.html">Home</a>
+            <ol class="navbar">
+                <!--
+                <li>
+                    <a class="navbar__item" href="./figures.html">
+                        <span class=" material-symbols-rounded">category</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar__item" href="./discounts.html">
+                        <span class=" material-symbols-rounded">price_change</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar__item" href="./statistics.html">
+                        <span class=" material-symbols-rounded">pin</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar__item" href="./salaries.html">
+                        <span class=" material-symbols-rounded">payments</span>
+                    </a>
+                </li>-->
+                <li>
+                    <a class="navbar__item" href="https://github.com/isaaknico" target="_blank">GitHub</a>
+                </li>
+            </ol>
+        </nav>
         <h1>Porcentajes y descuentos</h1>
         <p>Este es el segundo taller del Curso Práctico de Javascript</p>
     </header>
 
-    <section class="selector-figures-section">
-        <div class="selector-figures-container">
-            <div class="coupon-list">
+    <section class="section-half">
+        <div class="section-half__container">
+            <div class="tabs-container">
                 <div class="coupon">
                     <span class="material-symbols-rounded">
                         sell
@@ -43,12 +72,11 @@
                 </div>
             </div>
         </div>
-
     </section>
 
-    <section class="calculator-section">
-        <div class="calculator-container">
-            <h2 class="calculator__title">Calcula el precio a pagar de tus productos con descuento.</h2>
+    <section class="section">
+        <div class="section__container">
+            <h2 class="section__title">Calcula el precio a pagar de tus productos con descuento.</h2>
             <span class="material-symbols-rounded material-symbols-rounded--fill figure-icon">
                 price_change
             </span>
@@ -67,10 +95,11 @@
                 <p class="messageCoupon" id="PMessage"></p>
                 
                 <button class="button" type="button" onclick="onClickButtonPriceDiscount()">Calcular precio final</button>
-                <p class="result"  id="PResult"></p>
+                <p class="result-container"  id="PResult"></p>
             </form>
         </div>
     </section>
+    
     <script src="./discounts.js"></script>
 </body>
 </html>

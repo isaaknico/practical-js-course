@@ -1,0 +1,14 @@
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.carousel__item:first-child {
+    margin-left: 0;
+}
+
+.carousel__item:first-child {
+    margin-right: 0;
+}

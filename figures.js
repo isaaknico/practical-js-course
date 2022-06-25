@@ -72,7 +72,7 @@ function calcularAreaCuadrado() {
     const area = areaCuadrado(value);
     
     const resultado = document.getElementById("resultado");
-    resultado.innerHTML = "El área es: " + area + " cm^2";
+    resultado.innerHTML = "El área es: " + area + " cm²";
 }
 
 function calcularPerimetroTriangulo() {
@@ -87,13 +87,13 @@ function calcularPerimetroTriangulo() {
     const resultado = document.getElementById("resultadoTriangulo");
 
     if (!existe) {
-        resultado.classList.add("resultado--error");
+        resultado.classList.add("result--error");
         resultado.innerHTML = "ERROR: Las medidas ingresadas no son correctas";
     } else {
         const perimetro = perimetroTriangulo(base, lado1, lado2);
         
         const resultado = document.getElementById("resultadoTriangulo");
-        resultado.classList.remove("resultado--error");
+        resultado.classList.remove("result--error");
         resultado.innerHTML = "El perímetro es: " + perimetro + " cm";
     }
 }
@@ -107,7 +107,7 @@ function calcularAreaTriangulo() {
     const area = areaTriangulo(base, altura);
     
     const resultado = document.getElementById("resultadoTrianguloArea");
-    resultado.innerHTML = "El área es: " + area + " cm^2";
+    resultado.innerHTML = "El área es: " + area + " cm²";
 }
 
 
@@ -164,7 +164,7 @@ function calcularAreaCirculo() {
     const area = areaCirculo(radio);
 
     const resultado = document.getElementById("resultadoCirculo");
-    resultado.innerHTML = "El área es: " + area + " cm^2";
+    resultado.innerHTML = "El área es: " + area + " cm²";
 }
 
 
@@ -210,12 +210,12 @@ function calcularAlturaTriangulo() {
     const resultado = document.getElementById("resultadoTriangulo");
 
     if (!existe) {
-        resultado.classList.add("resultado--error");
+        resultado.classList.add("result--error");
         resultado.innerHTML = "ERROR: Las medidas ingresadas no son correctas";
     } else {
         const altura = alturaTriangulo(base, lado1, lado2);
 
-        resultado.classList.remove("resultado--error");
+        resultado.classList.remove("result--error");
         resultado.innerHTML = "La altura es: " + altura + " cm";
     }
 }

@@ -59,8 +59,8 @@ function onClickButtonPriceDiscount() {
         //Si el cupón No es válido
         if (!coupon) {
             pMessage.innerText = "Cupón: " + userCoupon + " no valido";
-            pMessage.classList.remove("messageCoupon--success");
-            pMessage.classList.add("messageCoupon--error")
+            pMessage.classList.remove("message-coupon--success");
+            pMessage.classList.add("message-coupon--error")
 
             //Muestra en HTML precio con descuento
             pResult.innerText = "El precio con descuento es: $" + finalPrice;
@@ -68,8 +68,8 @@ function onClickButtonPriceDiscount() {
         } else {
             //Si el cupón es válido
             pMessage.innerText = "Cupón: " + userCoupon + " aplicable";
-            pMessage.classList.add("messageCoupon--success");
-            pMessage.classList.remove("messageCoupon--error")
+            pMessage.classList.add("message-coupon--success");
+            pMessage.classList.remove("message-coupon--error")
             
             const couponPctDiscount = coupon.percentageDiscount;
     
@@ -93,12 +93,12 @@ function onClickButtonValidateCoupon() {
 
     if (!isValidCoupon) {
         pMessage.innerText = "Cupón: " + coupon + " no valido";
-        pMessage.classList.remove("messageCoupon--success");
-        pMessage.classList.add("messageCoupon--error");
+        pMessage.classList.remove("message-coupon--success");
+        pMessage.classList.add("message-coupon--error");
 
     } else {
         pMessage.innerText = "Cupón: " + coupon + " aplicable";
-        pMessage.classList.add("messageCoupon--success");
-        pMessage.classList.remove("messageCoupon--error");
+        pMessage.classList.add("message-coupon--success");
+        pMessage.classList.remove("message-coupon--error");
     }
 }
